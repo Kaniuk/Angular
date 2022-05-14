@@ -1,19 +1,4 @@
-<div class="user">
-  <div>id:{{user.id}}</div>
-  <div>{{user.name}}</div>
-  <div>{{user.username}}</div>
-  <div>{{user.email}}</div>
-  <div>
-    address:
-    <div>street:{{user.address.street}}</div>
-    <div>suite:{{user.address.suite}}</div>
-    <div>city:{{user.address.city}}</div>
-    <div>zipcode:{{user.address.zipcode}}</div>
-    <div>
-      geo:
-      <div>lat:{{user.address.geo.lat}}</div>
-      <div>lng:{{user.address.geo.lng}}</div>
-    </div>
-  </div>
-  <div>phone:{{user.phone}}</div>
-</div>
+<div>{{user.id}}.{{user.name}}
+  username - {{user.username}}</div>
+<hr>
+<a [routerLink]="">details</a>

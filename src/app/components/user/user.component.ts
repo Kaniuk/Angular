@@ -7,13 +7,14 @@ import {UserInterface} from "../../models/user.interface";
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
+
   @Input()
-  user: UserInterface
+  user: UserInterface;
 
   constructor() {
-  }
+  };
 
   ngOnInit(): void {
-  }
+  };
 
 }

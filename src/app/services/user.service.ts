@@ -17,7 +17,7 @@ export class UserService {
     return this.http.get<UserInterface[]>(this.url)
   }
 
-  getUser(id: number): Observable<UserInterface> {
+  getUser(id: string): Observable<UserInterface> {
     return this.http.get<UserInterface>(this.url + '/' + id)
   }
 }
