@@ -16,4 +16,8 @@ export class PostService {
   getPosts(): Observable<PostInterface[]> {
     return this.postHttp.get<PostInterface[]>(this.postUrl)
   }
+
+  getPost(id: string): Observable<PostInterface> {
+    return this.postHttp.get<PostInterface>(this.postUrl + '/' + id)
+  }
 }
