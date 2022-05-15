@@ -11,6 +11,9 @@ import {HomeComponent} from './components/home/home.component';
 import {PostsComponent} from './components/posts/posts.component';
 import {PostComponent} from './components/post/post.component';
 import {PostDetailsComponent} from './components/post-details/post-details.component';
+import { CommentsComponent } from './components/comments/comments.component';
+import { CommentComponent } from './components/comment/comment.component';
+import { CommentDetailsComponent } from './components/comment-details/comment-details.component';
 
 
 @NgModule({
@@ -23,6 +26,9 @@ import {PostDetailsComponent} from './components/post-details/post-details.compo
     PostsComponent,
     PostComponent,
     PostDetailsComponent,
+    CommentsComponent,
+    CommentComponent,
+    CommentDetailsComponent,
 
   ],
   imports: [
@@ -42,6 +48,13 @@ import {PostDetailsComponent} from './components/post-details/post-details.compo
         component: PostsComponent,
         children: [
           {path: ':id', component: PostDetailsComponent}
+        ]
+      },
+      {
+        path: 'comments',
+        component: CommentsComponent,
+        children: [
+          {path: ':id', component: CommentDetailsComponent}
         ]
       },
     ])
