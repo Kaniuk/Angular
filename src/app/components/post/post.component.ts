@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+
 import {PostInterface} from "../../models/post.interface";
 
 @Component({
