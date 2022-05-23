@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 
-import {CommentService} from "../comments/services/comment.service";
+import {CommentService} from "../../services/comment.service";
 import {CommentInterface} from "../../../../models/comment.interface";
 
 
@@ -24,9 +24,10 @@ export class CommentDetailsComponent implements OnInit {
       if (data) {
         this.commentDetails = data;
       } else {
-        this.activateRoute.params.subscribe(({id}) => {
+        /*this.activateRoute.params.subscribe(({id}) => {
           this.commentService.getById(id).subscribe(value => this.commentDetails = value);
-        });
+        });*/
+        this.activateRoute.data.subscribe(({commentData}) => this.commentDetails = commentData);
       }
     });
   }

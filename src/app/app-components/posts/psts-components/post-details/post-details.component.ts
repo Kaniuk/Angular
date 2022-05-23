@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 
-import {PostsService} from "../services/posts.service";
+import {PostsService} from "../../services/posts.service";
 import {PostInterface} from "../../../../models/post.interface";
 
 @Component({
@@ -22,9 +22,10 @@ export class PostDetailsComponent implements OnInit {
       if (data) {
         this.postDetails = data;
       } else {
-        this.activateRoute.params.subscribe(({id}) => {
-          this.postService.getById(id).subscribe(value => this.postDetails = value);
-        });
+        /* this.activateRoute.params.subscribe(({id}) => {
+           this.postService.getById(id).subscribe(value => this.postDetails = value);
+         });*/
+        this.activateRoute.data.subscribe(({postData}) => this.postDetails = postData);
       }
     });
   }
