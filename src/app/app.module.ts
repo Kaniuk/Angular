@@ -1,30 +1,41 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
+import {ReactiveFormsModule} from "@angular/forms";
 
 import {AppComponent} from './app.component';
-import {HttpClientModule} from "@angular/common/http";
-import {UsersComponent} from './components/users/users.component';
-import { UserComponent } from './components/user/user.component';
-import { CommentsComponent } from './components/comments/comments.component';
-import { CommentComponent } from './components/comment/comment.component';
-import { PostsComponent } from './components/posts/posts.component';
-import { PostComponent } from './components/post/post.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {MainLayoutComponent} from './layouts/main-layout/main-layout.component';
+import {CarsComponent} from './components/cars/cars.component';
+import {CarComponent} from './components/car/car.component';
+import {LoginComponent} from './components/login/login.component';
+import {RegisterComponent} from './components/register/register.component';
+import {HeaderComponent} from './components/header/header.component';
+import {AppRoutingModule} from "./app-routing.module";
+import {MainInterceptor} from "./main.interceptor";
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    UsersComponent,
-    UserComponent,
-    CommentsComponent,
-    CommentComponent,
-    PostsComponent,
-    PostComponent
+    MainLayoutComponent,
+    CarsComponent,
+    CarComponent,
+    LoginComponent,
+    RegisterComponent,
+    HeaderComponent,
+
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    multi: true,
+    useClass: MainInterceptor
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule {
